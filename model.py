@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 
 from sqlalchemy import create_engine
-import sqlalchemy
 
 Base = declarative_base()
 
@@ -24,7 +23,7 @@ class Tweet(Base):
     text = Column(String, nullable=False)
 
 if __name__ == '__main__':
-    engine = create_engine('sqlite:///:memory:', echo=True)
+    engine = create_engine('sqlite:///cottorro.db', echo=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker()
     Session.configure(bind=engine)
@@ -49,3 +48,4 @@ if __name__ == '__main__':
     session.add(t2)
     for ta in session.query(Tweet).all():
         print(ta.text, ta.id, ta.author_id, ta.author)
+    session.commit()
