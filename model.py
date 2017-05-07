@@ -22,6 +22,7 @@ class Tweet(Base):
     author = relationship('User', back_populates='tweets')
     text = Column(String, nullable=False)
 
+
 if __name__ == '__main__':
     engine = create_engine('sqlite:///cottorro.db', echo=True)
     Base.metadata.create_all(engine)
@@ -30,14 +31,11 @@ if __name__ == '__main__':
     session = Session()
     conn = engine.connect()
     conn.execute('PRAGMA foreign_keys = ON;')
-    print(User.__tablename__)
-    print('<<>>')
     yo = User()
     yo.id = 'Ark'
     yo.key = 'pass'
     yo.salt = '-098adsf6bb5h50adf'
     session.add(yo)
-    print('>><<')
     t1 = Tweet()
     t1.author_id = 'Ark'
     t1.text = 'Esto es una prueba'
