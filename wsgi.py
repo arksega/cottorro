@@ -13,20 +13,25 @@ Session.configure(bind=engine)
 db = Session()
 
 
+class AuthMiddleware(object):
+
+    def process_request(self, req, resp):
+        session = req.env['beaker.session']
+        if not session.get('logged_in', None) and req.path != '/login':
+            raise falcon.HTTPFound('/login')
+
+
 class Home(object):
 
     def on_get(self, req, resp):
         resp.content_type = 'text/html'
         session = req.env['beaker.session']
-        if session.get('logged_in', None):
-            print(db.query(Tweet).all())
-            tmpl = j2_env.get_template('home.html')
-            resp.body = tmpl.render({
-                'tweets': db.query(Tweet).all(),
-                'user': session.get('logged_in')
-            })
-        else:
-            raise falcon.HTTPFound('/login')
+        print(db.query(Tweet).all())
+        tmpl = j2_env.get_template('home.html')
+        resp.body = tmpl.render({
+            'tweets': db.query(Tweet).all(),
+            'user': session.get('logged_in')
+        })
 
 
 class Login(object):
@@ -65,15 +70,11 @@ class TweetResource(object):
     def on_get(self, req, resp):
         resp.content_type = 'text/html'
         session = req.env['beaker.session']
-        if not session.get('logged_in', None):
-            raise falcon.HTTPFound('/login')
         tmpl = j2_env.get_template('cottorrear.html')
         resp.body = tmpl.render({'user': session['logged_in']})
 
     def on_post(self, req, resp):
         session = req.env['beaker.session']
-        if not session.get('logged_in', None):
-            raise falcon.HTTPFound('/login')
         tx = Tweet(**{
             'author_id': session['logged_in'],
             'text': req.params['text']})
@@ -81,7 +82,7 @@ class TweetResource(object):
         db.commit()
         raise falcon.HTTPFound('/')
 
-app = falcon.API()
+app = falcon.API(middleware=[AuthMiddleware()])
 app.req_options.auto_parse_form_urlencoded = True
 app.add_route('/', Home())
 app.add_route('/login', Login())
