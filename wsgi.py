@@ -106,7 +106,11 @@ class Signup(object):
         sha256 = hashlib.sha256()
         sha256.update((salt + req.params['password']).encode())
         key = sha256.hexdigest()
-        db.add(User(id=req.params['username'], salt=salt, key=key))
+        db.add(User(
+            id=req.params['username'],
+            salt=salt,
+            key=key,
+            email=req.params['email']))
         try:
             db.commit()
             session = req.env['beaker.session']

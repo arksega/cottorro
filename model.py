@@ -10,6 +10,7 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'user'
     id = Column(String, primary_key=True)
+    email = Column(String)
     salt = Column(String)
     key = Column(String)
     tweets = relationship('Tweet', back_populates='author')
