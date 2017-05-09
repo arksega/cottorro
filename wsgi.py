@@ -64,14 +64,11 @@ class Login(object):
                 session['logged_in'] = user.id
                 session.save()
                 raise falcon.HTTPFound('/')
-            else:
-                resp.content_type = 'text/html'
-                ermsg = 'Usuario o contraseña invalidos'
-                data = {'alerts': [Alert('urgent', '', ermsg)]}
-                tmpl = j2_env.get_template('login.html')
-                resp.body = tmpl.render(data)
-        else:
-            self.on_get(req, resp)
+        ermsg = 'Usuario o contraseña invalidos'
+        resp.content_type = 'text/html'
+        data = {'alerts': [Alert('urgent', '', ermsg)]}
+        tmpl = j2_env.get_template('login.html')
+        resp.body = tmpl.render(data)
 
 
 class Logout(object):
