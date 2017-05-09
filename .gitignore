@@ -1,0 +1,7 @@
+.ropeproject
+__pycache__
+sessions
+*swp
+*swo
+*db
+env
