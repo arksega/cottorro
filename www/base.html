@@ -10,28 +10,49 @@
 	</head>
 	<body>
 		<header>
-			<a href="/" class="logo">Cottorro</a>
-			{% if user %}
-			<a href="/write" class="button">Cotorrea</a>
-			<span>|</span>
-			<a href="#" class="button">{{user}}</a>
-			<a href="/logout" class="button">Salir</a>
-			{% else %}
-			<a href="/signup" class="button">Regístrate</a>
-			<span>|</span>
-			<a href="/login" class="button">Entrar</a>
-			{% endif %}
+		<div class="row">
+			<div class="col-sm-12 col-md-2 col-lg-3">
+			</div>
+			<div class="col-sm-12 col-md-7 col-lg-5 row">
+				<div class="col-sm-3">
+					<a href="/" class="logo">Cottorro</a>
+				</div>
+				<div class="col-sm"></div>
+				<div class="col-sm">
+				{% if user %}
+				<a href="/write" class="button">Cotorrea</a>
+				<span class="button">|</span>
+				<a href="#" class="button">{{user}}</a>
+				<a href="/logout" class="button">Salir</a>
+				{% else %}
+				<a href="/signup" class="button">Regístrate</a>
+				<span class="button">|</span>
+				<a href="/login" class="button">Entrar</a>
+				{% endif %}
+				</div>
+			</div>
+			<div class="col-sm-12 col-md-3 col-lg-2">
+			</div>
 		</header>
-		<div class="container">
-		{% for alert in alerts -%}
-		<div class="alert {{alert.level}}">
-			{% if alert.tittle %}
-			<h3>{{alert.tittle}}</h3>
-			{% endif %}
-			<p>{{alert.text}}</p>
 		</div>
-		{%- endfor %}
-		{% block content %}{% endblock %}
+		<div class="container">
+			{% for alert in alerts -%}
+			<div class="alert {{alert.level}}">
+				{% if alert.tittle %}
+				<h3>{{alert.tittle}}</h3>
+				{% endif %}
+				<p>{{alert.text}}</p>
+			</div>
+			{%- endfor %}
+			<div class="row">
+				<div class="col-sm-12 col-md-2 col-lg-3">
+				</div>
+				<div class="col-sm-12 col-md-7 col-lg-5">
+				{% block content %}{% endblock %}
+				</div>
+				<div class="col-sm-12 col-md-3 col-lg-4">
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

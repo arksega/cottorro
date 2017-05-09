@@ -36,8 +36,13 @@ class Home(object):
         session = req.env['beaker.session']
         print(db.query(Tweet).all())
         tmpl = j2_env.get_template('home.html')
+        xdata = []
+        for tw in db.query(Tweet).all():
+            shash = hashlib.md5(tw.author.email.lower().encode()).hexdigest()
+            tw.img = "https://www.gravatar.com/avatar/" + shash
+            xdata.append(tw)
         resp.body = tmpl.render({
-            'tweets': db.query(Tweet).all(),
+            'tweets': xdata,
             'user': session.get('logged_in')
         })
 
