@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.1 r"
+   sodipodi:docname="cottorro.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="366.58091"
+     inkscape:cy="688.863"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     showgrid="false"
+     inkscape:window-width="1916"
+     inkscape:window-height="1027"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <rect
+       id="rect3746"
+       width="135.44777"
+       height="135.44777"
+       x="27.970236"
+       y="47.592403"
+       style="stroke-width:0.26458332;fill:none;stroke:none"
+       inkscape:export-xdpi="46.880001"
+       inkscape:export-ydpi="46.880001" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <image
+       sodipodi:absref="/home/ark/cottorro/www/loro.jpg"
+       xlink:href="www/loro.jpg"
+       width="158.75"
+       height="119.32708"
+       preserveAspectRatio="none"
+       id="image3742"
+       x="27.970236"
+       y="47.592403" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3"
+     style="display:inline">
+    <path
+       style="fill:#71c837;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 28.064733,152.04612 c 0,0 24.851933,-35.34077 26.930801,-35.34077 2.078871,0 4.535715,-8.69345 5.291667,-12.6622 3.779763,-1.70089 0.944941,-2.64583 1.322917,-3.40178 6.992559,-2.834824 1.511905,-3.779765 2.834822,-4.535717 1.322917,-0.755951 -3.212798,-1.889881 3.023809,-6.614583 1.322917,-1.700892 -3.96875,-3.96875 3.212798,-6.803572 2.83482,-1.511904 -5.858631,-2.456844 3.96875,-9.260417 2.456845,0.188989 -1.322916,-4.346726 7.748511,-9.071427 -13.418155,0.94494 22.637112,-11.91794 37.419642,-7.748511 -6.4256,-6.047622 41.1994,4.157738 30.2381,32.694938 -7.074,-13.333198 -16.24247,0.331461 -15.30804,1.889883 -6.86133,3.920774 -10.6718,13.602786 -10.63058,21.639136 0,0 4.52975,-0.76703 5.76414,1.03943 2.90142,25.78183 -9.11868,54.90105 -17.43415,69.07515 l -84.477684,0.0945 z"
+       id="path3749"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="csccscccccccccc" />
+    <path
+       style="fill:#9dac93;fill-rule:evenodd;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 138.24479,113.39806 c 0.4712,0.4712 -9.58455,3.73912 -14.12686,-0.56696 -0.51972,-6.04762 2.97656,-18.237353 10.63058,-21.639137 -0.94494,-1.889881 8.40997,-15.30804 15.30804,-1.889882 -0.85045,6.803573 4.72469,25.891369 -12.94569,33.167409 2.45685,-6.89806 1.13393,-9.07143 1.13393,-9.07143 z"
+       id="path4556"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
+    <ellipse
+       style="fill:#ccffaa;fill-opacity:1;stroke:none;stroke-width:0.2471734;stroke-opacity:1"
+       id="path4558"
+       cx="91.703316"
+       cy="107.18976"
+       rx="4.5357141"
+       ry="5.1026788"
+       transform="rotate(-15.068488)" />
+  </g>
+</svg>
