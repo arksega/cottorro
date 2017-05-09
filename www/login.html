@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+			<form action="/login" method="post">
+				<fieldset>
+				<legend>Login</legend>
+				<div class="input-group fluid">
+					<label for="username">username</label>
+					<input type="text" value="" name="username" id="username" placeholder="username">
+				</div>
+				<div class="input-group fluid">
+					<label for="pwd">password</label>
+					<input type="password" value="" name="password" id="pwd" placeholder="password">
+				</div>
+				<div class="input-group fluid">
+					<input type="submit" value="Login">
+				</div>
+				</fieldset>
+			</form>
+{% endblock %}

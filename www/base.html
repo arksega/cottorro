@@ -18,15 +18,7 @@
 			<button>Contact</button>
 		</header>
 		<div class="container">
-			<div class="row">
-			{% for tweet in tweets %}
-				<div class="card">
-					<div class="section">
-						<p>{{tweet.text}}</p>
-					</div>
-				</div>
-			{% endfor %}
-			</div>
+		{% block content %}{% endblock %}
 		</div>
 	</body>
 </html>
