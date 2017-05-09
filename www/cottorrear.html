@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+			<form action="/write" method="post">
+				<fieldset>
+				<legend>Cottorrea</legend>
+				<div class="input-group fluid">
+					<label for="pwd">Texto</label>
+					<input type="text" value="" name="text" id="content" placeholder="Que estas haciendo">
+				</div>
+				<div class="input-group fluid">
+					<input type="submit" value="Guardar">
+				</div>
+				</fieldset>
+			</form>
+{% endblock %}
+

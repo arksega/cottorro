@@ -60,11 +60,33 @@ class Logout(object):
         raise falcon.HTTPFound('/')
 
 
+class TweetResource(object):
+
+    def on_get(self, req, resp):
+        resp.content_type = 'text/html'
+        session = req.env['beaker.session']
+        if not session.get('logged_in', None):
+            raise falcon.HTTPFound('/login')
+        tmpl = j2_env.get_template('cottorrear.html')
+        resp.body = tmpl.render({'user': session['logged_in']})
+
+    def on_post(self, req, resp):
+        session = req.env['beaker.session']
+        if not session.get('logged_in', None):
+            raise falcon.HTTPFound('/login')
+        tx = Tweet(**{
+            'author_id': session['logged_in'],
+            'text': req.params['text']})
+        db.add(tx)
+        db.commit()
+        raise falcon.HTTPFound('/')
+
 app = falcon.API()
 app.req_options.auto_parse_form_urlencoded = True
 app.add_route('/', Home())
 app.add_route('/login', Login())
 app.add_route('/logout', Logout())
+app.add_route('/write', TweetResource())
 # Configure the SessionMiddleware
 session_opts = {
     'session.type': 'file',
