@@ -18,12 +18,15 @@ class Home(object):
     def on_get(self, req, resp):
         resp.content_type = 'text/html'
         session = req.env['beaker.session']
-        if 'logged_in' in session:
+        if session.get('logged_in', None):
             print(db.query(Tweet).all())
             tmpl = j2_env.get_template('home.html')
-            resp.body = tmpl.render({'tweets': db.query(Tweet).all()})
+            resp.body = tmpl.render({
+                'tweets': db.query(Tweet).all(),
+                'user': session.get('logged_in')
+            })
         else:
-            raise falcon.HTTPMovedPermanently('/login')
+            raise falcon.HTTPFound('/login')
 
 
 class Login(object):
@@ -31,8 +34,8 @@ class Login(object):
     def on_get(self, req, resp):
         resp.content_type = 'text/html'
         session = req.env['beaker.session']
-        if 'logged_in' in session:
-            raise falcon.HTTPMovedPermanently('/')
+        if session.get('logged_in', None):
+            raise falcon.HTTPFound('/')
         else:
             tmpl = j2_env.get_template('login.html')
             resp.body = tmpl.render()
@@ -43,15 +46,25 @@ class Login(object):
             session = req.env['beaker.session']
             session['logged_in'] = user.id
             session.save()
-            raise falcon.HTTPMovedPermanently('/')
+            raise falcon.HTTPFound('/')
         else:
             self.on_get(req, resp)
+
+
+class Logout(object):
+
+    def on_get(self, req, resp):
+        session = req.env['beaker.session']
+        session['logged_in'] = None
+        session.save()
+        raise falcon.HTTPFound('/')
 
 
 app = falcon.API()
 app.req_options.auto_parse_form_urlencoded = True
 app.add_route('/', Home())
 app.add_route('/login', Login())
+app.add_route('/logout', Logout())
 # Configure the SessionMiddleware
 session_opts = {
     'session.type': 'file',
