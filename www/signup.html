@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+			<form action="/signup" method="post">
+				<legend>Regístrate</legend>
+				<div class="input-group fluid">
+					<label for="username">Usuario</label>
+					<input required type="text" value="{{username}}" name="username" id="username" placeholder="usuario">
+				</div>
+				<div class="input-group fluid">
+					<label for="pwd">Contraseña</label>
+					<input required type="password" value="" name="password" id="pwd" placeholder="contraseña">
+				</div>
+				<div class="input-group fluid">
+					<label for="pwd2">Contraseña</label>
+					<input required type="password" value="" name="password2" id="pwd2" placeholder="confirmair contraseña">
+				</div>
+				<div class="input-group fluid">
+					<label for="email">Correo</label>
+					<input required type="email" value="{{email}}" name="email" id="email" placeholder="correo">
+				</div>
+				<div class="input-group fluid">
+					<input class="tertiary" type="submit" value="Entrar">
+				</div>
+			</form>
+{% endblock %}
