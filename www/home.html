@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block content %}
+{% block content -%}
 			<div class="row">
 			{% for tweet in tweets %}
-				<div class="card">
-					<div class="section">
-						<p>{{tweet.text}}</p>
-					</div>
+			<div class="card large">
+				<div class="section">
+					<p>{{tweet.text}}</p>
 				</div>
+			</div>
 			{% endfor %}
 			</div>
-{% endblock %}
+{%- endblock %}

@@ -14,10 +14,23 @@
 			{% if user %}
 			<a href="/write" class="button">Cotorrea</a>
 			<span>|</span>
+			<a href="#" class="button">{{user}}</a>
 			<a href="/logout" class="button">Salir</a>
+			{% else %}
+			<a href="/signup" class="button">Regístrate</a>
+			<span>|</span>
+			<a href="/login" class="button">Entrar</a>
 			{% endif %}
 		</header>
 		<div class="container">
+		{% for alert in alerts -%}
+		<div class="alert {{alert.level}}">
+			{% if alert.tittle %}
+			<h3>{{alert.tittle}}</h3>
+			{% endif %}
+			<p>{{alert.text}}</p>
+		</div>
+		{%- endfor %}
 		{% block content %}{% endblock %}
 		</div>
 	</body>
